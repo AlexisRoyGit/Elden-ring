@@ -1,6 +1,75 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-size: 11px;
+    font-size: 13px;
     background-color: #605F5E;
+}
+
+.title {
+    text-align: center;
+}
+
+.navigation {
+    display: grid;
+    grid-template: 75px / repeat(3, 1fr);
+    background-color: #1F487E;
+}
+
+.logo {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+}
+
+.logo-placement {
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.burger {
+    grid-row: 1 / 1;
+    grid-column: 3 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-nav {
+    position: fixed;
+    height: 100vh;
+    width: 210px;
+    background-color: #1D3461;
+    z-index: -1;
+    right: -210px;
+    transition: right 2s ease;
+}
+
+.list-link {
+    list-style: none;
+    margin-top: 50px;
+}
+
+.list-link li {
+    margin-top: 25px;
+}
+
+.list-link li a {
+    text-decoration: none;
+    color: #FB3640;
+}
+
+.close {
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    font-size: 30px;
+    text-decoration: none;
+    color: #FB3640;
+}
+
+.undisplayed {
+    display: none;
 }
