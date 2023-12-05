@@ -39,12 +39,13 @@ html, body {
 
 .side-nav {
     position: fixed;
+    padding-top: 40px;
     height: 100vh;
     width: 210px;
     background-color: #1D3461;
-    z-index: -1;
+    z-index: 1;
     right: -210px;
-    transition: right 2s ease;
+    transition: right 1.5s ease;
 }
 
 .list-link {
@@ -72,4 +73,8 @@ html, body {
 
 .undisplayed {
     display: none;
+}
+
+.active {
+    right: 0;
 }
