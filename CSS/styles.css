@@ -78,3 +78,25 @@ html, body {
 .active {
     right: 0;
 }
+
+footer {
+    display: grid;
+    grid-template: 120px / repeat(2, 1fr);
+    background-color: #FB3640;
+    color: white;
+}
+
+.right {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+.left {
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+}
+
+.right ul, .left  ul{
+    list-style: none;
+  
+}
