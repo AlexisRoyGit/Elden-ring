@@ -1,0 +1,23 @@
+img {
+    display: block;
+    width: 200px;
+    height: 180px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.fiche {
+    width: 80%;
+    margin: 10px auto;
+    border: solid 4px black;
+    border-radius: 5px;
+}
+
+ul {
+    text-align: center;
+    list-style: none;
+}
+
+ul li {
+    margin-right: 30px;
+}
