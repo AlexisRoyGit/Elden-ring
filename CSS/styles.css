@@ -79,6 +79,13 @@ html, body {
     right: 0;
 }
 
+.illustrations {
+    display: block;
+    width: 80%;
+    height: 15%;
+    margin: 0 auto;
+}
+
 footer {
     display: grid;
     grid-template: 120px / repeat(2, 1fr);
