@@ -3,7 +3,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-size: 13px;
+    font-size: 15px;
     background-color: #605F5E;
     font-family: 'Roboto', sans-serif;
 }
@@ -109,4 +109,67 @@ footer {
 .right ul, .left  ul{
     list-style: none;
   
+}
+
+@media screen and (min-width : 768px) {
+    html, body {
+        font-size: 20px;
+    }
+
+    .navigation {
+        display: grid;
+        grid-template: 90px / repeat(5, 1fr);
+        background-color: #1F487E;
+    }
+
+    .navigation a {
+        text-decoration: none;
+        color: #FB3640;
+    }
+
+    .logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .logo-placement {
+        grid-row: 1 / 1;
+        grid-column: 1 / 1;
+    }
+
+    .desktopboss {
+        grid-row: 1 / 1;
+        grid-column: 2 / 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .desktopzones {
+        grid-row: 1 / 1;
+        grid-column: 3 / 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .desktopconseils {
+        grid-row: 1 / 1;
+        grid-column: 4 / 4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .desktopconnexion {
+        grid-row: 1 / 1;
+        grid-column: 5 / 5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .burger {
+        display: none;
+    }
 }
