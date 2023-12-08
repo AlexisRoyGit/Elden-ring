@@ -34,3 +34,13 @@
     background-color: black;
     color: white;
 }
+
+@media screen and (min-width : 750px) {
+    .connexion input, .inscription input:not(.file) {
+        width: 45%;
+    }
+
+    .button {
+        width: 20%;
+    }
+}

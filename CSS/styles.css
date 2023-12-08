@@ -82,6 +82,12 @@ html, body {
     right: 0;
 }
 
+.links {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
 .illustrations {
     display: block;
     width: 80%;
