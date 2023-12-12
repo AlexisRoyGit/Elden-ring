@@ -44,3 +44,13 @@
         width: 20%;
     }
 }
+
+@media screen and (min-width : 1050px) {
+    .connexion input, .inscription input:not(.file) {
+        width: 40%;
+    }
+
+    .button {
+        width: 12%;
+    }
+}
