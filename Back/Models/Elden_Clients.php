@@ -1,13 +1,19 @@
 <?php
 
 class Elden_Clients {
-    private int $id_clients;
+    private string $mail_client;
+    private string $password;
     private string $pseudo;
     private string $avatar;
 
-    public function getId(): int 
+    public function getMail(): string 
     {
-        return $this->id_clients;
+        return $this->mail_client;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
     }
 
     public function getPseudo(): string 
