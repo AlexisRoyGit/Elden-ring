@@ -84,4 +84,21 @@ class Database {
             echo $e->getMessage();
         }
     }
+
+    public function submitStarNotation(string $identity, int $note) 
+    //DANS TABLE SQL, FERA REF A EMAIL DANS ELDENCLIENTS
+    {
+        try {
+            $pdoStatement = $this->pdo->prepare('INSERT INTO starNotation VALUES(?,?)');
+            $pdoStatement->bindValue(1, $identity, PDO::PARAM_STR);
+            $pdoStatement->bindValue(2, $note, PDO::PARAM_INT);
+            if($pdoStatement->execute()) {
+                echo 'Votre note a bien été prise en compte'; //Reponse en modale ???
+            } else {
+                echo 'Une erreur est survenue';
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
