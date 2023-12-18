@@ -44,4 +44,26 @@ class Database {
             echo $e->getMessage();
         }
     }
+
+    public function userConection(string $mail, string $password) 
+    {
+        try {
+            $pdoStatement = $this->pdo->prepare('SELECT * FROM elden_clients WHERE mail_client = ?');
+            $pdoStatement->bindValue(1, $mail, PDO::PARAM_STR);
+            $pdoStatement->setFetchMode(PDO::FETCH_CLASS, 'Elden_Clients');
+            if($pdoStatement->execute()) {
+                $user = $pdoStatement->fetch();
+                if(password_verify($password, $user->getPassword())) {
+                    $_SESSION['userIdentity'] = $user->getMail();
+                    header('Location: ../index.html');
+                } else {
+                    echo 'Votre mot de passe est incorrect, veuillez réessayer';
+                }
+            } else {
+                echo 'Une erreur est survenue';
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
