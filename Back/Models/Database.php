@@ -25,12 +25,13 @@ class Database {
         }
     }
 
-    public function inscription(string $mail, string $password, string $pseudo, string $avatar) 
+    public function userInscription(string $mail, string $password, string $pseudo, string $avatar) 
     {
         try {
             $pdoStatement = $this->pdo->prepare('INSERT INTO elden_clients VALUES(?,?,?,?)');
             $pdoStatement->bindValue(1, $mail, PDO::PARAM_STR);
-            $pdoStatement->bindValue(2, $password, PDO::PARAM_STR);
+            $newPass = password_hash($password, PASSWORD_BCRYPT);
+            $pdoStatement->bindValue(2, $newPass, PDO::PARAM_STR);
             $pdoStatement->bindValue(3, $pseudo, PDO::PARAM_STR);
             $pdoStatement->bindValue(4, $avatar, PDO::PARAM_STR);
             if($pdoStatement->execute()) {
