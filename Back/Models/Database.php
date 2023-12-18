@@ -66,4 +66,22 @@ class Database {
             echo $e->getMessage();
         }
     }
+
+    public function displayUserInformations(string $mail)
+    {
+        try {
+            $pdoStatement = $this->pdo->prepare('SELECT pseudo, avatar FROM elden_clients WHERE mail_client = ?');
+            $pdoStatement->bindValue(1, $mail, PDO::PARAM_STR);
+            $pdoStatement->setFetchMode(PDO::FETCH_CLASS, 'Elden_Clients');
+            if($pdoStatement->execute()) {
+                $user = $pdoStatement->fetch();
+                echo '<h1 class="title">'.$user->getPseudo().'</h1>';
+                echo '<img src="Medias/'.$user->getAvatar().'" alt="Avatar du client" class="avatar-client">';
+            } else {
+                echo 'Une erreur est survenue';
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
