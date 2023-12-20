@@ -37,4 +37,10 @@ function fileVerifications(array $file): bool {
     return fileWeight($file) && fileExtesion($file) && fileType($file) && fileError($file);
 }
 
-//FONCTIONS CHAMPS VIDES
+function emptyFieldsConnexion(string $mail, string $password) {
+    return isset($mail) && isset($password) && $mail !== '' && $password !== '';
+}
+
+function emptyFieldsInscription(string $mail, string $password, string $pseudo, array $file) {
+    return isset($mail) && isset($password) && isset($pseudo) && isset($file) && $mail !== '' && $password !== '' && $pseudo !== '';
+}
