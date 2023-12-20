@@ -13,6 +13,7 @@
 }
 
 .modal {
+    margin: 20px auto;
     width: 200px;
     height: 130px;
     background-color: #FB3640;
