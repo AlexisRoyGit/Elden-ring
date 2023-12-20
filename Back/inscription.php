@@ -13,8 +13,13 @@ $localisationImage = $avatar['tmp_name'];
 
 if(emptyFieldsInscription($mail, $password, $pseudo, $avatar)) {
     if(emailValid($mail) && passwordVerifications($password) && pseudoLength($pseudo) && fileVerifications($avatar)) {
-        $database->userInscription($mail, $password, $pseudo, $avatar);
-        move_uploaded_file($localisationImage, '../Medias/'.$avatar['name'].'');
+        if($database->preventDuplication($mail)) {
+            $database->userInscription($mail, $password, $pseudo, $avatar);
+            move_uploaded_file($localisationImage, '../Medias/'.$avatar['name'].'');
+        } else {
+            unset($avatar);
+            echo 'Cette adresse mail correspond déjà à un compte existant, veuillez en sélectionner une autre';
+        }
     } else {
         echo 'Un ou plusieurs champs sont invalides, vérifiez la validité des champs ainsi que votre avatar';
     }
