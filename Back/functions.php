@@ -4,16 +4,24 @@ function lengthPassword(string $pass): bool {
     return strlen($pass) > 10 && strlen($pass) < 20;
 }
 
-function charactersPasword(string $pass): bool {
+function charactersPassword(string $pass): bool {
     $maj = '/[A-Z]/';
     $number = '/[0-9]/';
     
     return boolval(preg_match($maj, $pass) && preg_match($number, $pass));
 }
 
+function passwordVerifications(string $password): bool {
+    return lengthPassword($password) && charactersPassword($password);
+}
+
 function emailValid(string $mail): bool {
     $pattern = '/^[A-z0-9_.+-]+@[A-z0-9-]+\.[A-z0-9-.]+$/';
     return boolval(preg_match($pattern, $mail));
+}
+
+function pseudoLength(string $pseudo): bool {
+    return strlen($pseudo) > 5 && strlen($pseudo) < 20;
 }
 
 function fileWeight(array $file): bool {
