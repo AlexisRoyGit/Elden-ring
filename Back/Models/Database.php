@@ -93,7 +93,7 @@ class Database {
             $pdoStatement->bindValue(1, $identity, PDO::PARAM_STR);
             $pdoStatement->bindValue(2, $note, PDO::PARAM_INT);
             if($pdoStatement->execute()) {
-                echo 'Votre note a bien été prise en compte'; //Reponse en modale ???
+                echo 'Votre note a bien été prise en compte'; //Reponse en modale ??? ENVOI ASYNCHROE ???
             } else {
                 echo 'Une erreur est survenue';
             }

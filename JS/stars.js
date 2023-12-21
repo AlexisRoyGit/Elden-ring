@@ -15,3 +15,40 @@ function hideModal() {
 
 buttonModal.addEventListener('click', displayModal);
 buttonCloseModal.addEventListener('click', hideModal);
+
+////////////CODE ETOILES
+
+let stars = document.querySelectorAll('.la-star');
+let input = document.querySelector('#note');
+
+for(star of stars) {
+    star.addEventListener('mouseover', function() {
+        this.style.color = 'black';
+
+        let previousStar = this.previousElementSibling;
+
+        while(previousStar) {
+            previousStar.style.color = 'black';
+
+            previousStar = previousStar.previousElementSibling;
+    }
+    });
+
+    star.addEventListener('mouseleave', function() {
+        resetStar(input.value);
+    });
+
+    star.addEventListener('click', function() {
+        input.value = this.dataset.value;
+    });
+}
+
+function resetStar(nombre = 0) {
+    for(star of stars) {
+        if(star.dataset.value > nombre) {
+            star.style.color = 'white';
+        } else {
+            star.style.color = 'black';
+        }
+    }
+}
