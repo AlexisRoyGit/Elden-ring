@@ -1,3 +1,9 @@
+<?php  
+    require_once 'Back/controller-database.php';
+    if(isset($_COOKIE['PHPSESSID'])) {
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,7 +22,7 @@
                 <li><a href="boss.html">Les boss</a></li>
                 <li><a href="zones.html">Les zones</a></li>
                 <li><a href="conseils.html">Astuces</a></li>
-                <li><a href="connexion.html">Connexion (ou acces espace perso si connecté)</a></li>
+                <?php require_once 'Back/controller-session.php'; $session->linksMobile() ?>
             </ul>
         </div>
         <a href="#" class="burger" id="buttonOpen">
@@ -27,13 +33,19 @@
         <a href="boss.html" class="undisplayed desktopboss">Les boss</a>
         <a href="zones.html" class="undisplayed desktopzones">Les zones</a>
         <a href="conseils.html" class="undisplayed desktopconseils">Astuces</a>
-        <a href="connexion.html" class="undisplayed desktopconnexion">Connexion (ou espace perso)</a>
+        <?php $session->linksNav() ?>
     </nav>
+    <?php if(isset($_SESSION['userIdentity']) && $database->accesEspace($_SESSION['userIdentity'])): ?>
     <main>
-        <h1 class="title">Nom client connecté</h1>
-        <img src="Medias/illustration-fans.jpg" alt="Avatar du client" class="avatar-client">
+        <?php $database->displayUserInformations($_SESSION['userIdentity']); ?>
         <a href="Back/deconnexion.php" class="link-button"><button class="button">Se déconnecter</button></a>
     </main>
+    <?php else: ?>
+    <main>
+        <h1 class="title">Accès interdit</h1>
+        <p>Veuillez vous connecter à votre compte pour accéder à votre espace client</p>
+    </main>
+    <?php endif; ?>
     <footer>
         <div class="left">
             <p>Nous contacter</p>

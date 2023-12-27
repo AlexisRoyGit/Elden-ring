@@ -100,4 +100,18 @@ class Database {
             echo $e->getMessage();
         }
     }
+
+    public function accesEspace(string $identity) {
+        try {
+            $pdoStatement = $this->pdo->prepare('SELECT * FROM elden_clients WHERE mail_client = ?');
+            $pdoStatement->bindValue(1, $identity, PDO::PARAM_STR);
+            if($pdoStatement->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

@@ -1,3 +1,8 @@
+<?php  
+    if(isset($_COOKIE['PHPSESSID'])) {
+        session_start();
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -15,9 +20,9 @@
             <a href="#" class="close" id="buttonClose">x</a>
             <ul class="list-link">
                 <li><a href="#">Les boss</a></li>
-                <li><a href="zones.html">Les zones</a></li>
-                <li><a href="conseils.html">Astuces</a></li>
-                <li><a href="connexion.html">Connexion (ou acces espace perso si connecté)</a></li>
+                <li><a href="zones.php">Les zones</a></li>
+                <li><a href="conseils.php">Astuces</a></li>
+                <?php require_once 'Back/controller-session.php'; $session->linksMobile() ?>
             </ul>
         </div>
         <a href="#" class="burger" id="buttonOpen">
@@ -26,9 +31,9 @@
               </svg>
         </a>
         <a href="#" class="undisplayed desktopboss">Les boss</a>
-        <a href="zones.html" class="undisplayed desktopzones">Les zones</a>
-        <a href="conseils.html" class="undisplayed desktopconseils">Astuces</a>
-        <a href="connexion.html" class="undisplayed desktopconnexion">Connexion (ou espace perso)</a>
+        <a href="zones.php" class="undisplayed desktopzones">Les zones</a>
+        <a href="conseils.php" class="undisplayed desktopconseils">Astuces</a>
+        <?php $session->linksNav() ?>
     </nav>
     <main>
         <h1 class="title">Les boss majeurs</h1>
