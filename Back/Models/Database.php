@@ -86,14 +86,13 @@ class Database {
     }
 
     public function submitStarNotation(string $identity, int $note) 
-    //DANS TABLE SQL, FERA REF A EMAIL DANS ELDENCLIENTS
     {
         try {
-            $pdoStatement = $this->pdo->prepare('INSERT INTO starNotation VALUES(?,?)');
+            $pdoStatement = $this->pdo->prepare('INSERT INTO notation_stars VALUES(?,?)');
             $pdoStatement->bindValue(1, $identity, PDO::PARAM_STR);
             $pdoStatement->bindValue(2, $note, PDO::PARAM_INT);
             if($pdoStatement->execute()) {
-                echo 'Votre note a bien été prise en compte'; //Reponse en modale ??? ENVOI ASYNCHROE ???
+                echo 'Votre note a bien été prise en compte';
             } else {
                 echo 'Une erreur est survenue';
             }

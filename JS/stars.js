@@ -52,3 +52,23 @@ function resetStar(nombre = 0) {
         }
     }
 }
+
+/////ENVOI ASYNCHRONE NOTE
+
+let buttonSubmit = document.getElementById('submitButton');
+
+function XMLCall(identity, note) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `https://localhost:8888/EldenRing/Back/notation.php?client=${encodeURIComponent(identity)}?notation=${encodeURIComponent(note)}`);
+    xhr.addEventListener('readystatechange', () => {
+        if(xhr.status === 200 && xhr.readyState === 4) {
+            alert('Votre note a bien été prise en compte, merci à vous');
+        } else {
+            alert('Une erreur est survenue');
+        }
+    })
+}
+
+buttonSubmit.addEventListener('click', function() {
+    XMLCall($_SESSION['userIdentity'],input.value);
+});
